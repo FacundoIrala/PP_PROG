@@ -1,3 +1,5 @@
+# MODULO DE FUNCIONES
+
 # PUNTO 1
 def cargar_matriz_notas():
     matriz = [] #inicializamos la variable como lista
@@ -50,46 +52,46 @@ def porcentaje_aprobados(matriz):
 # PUNTO 3
 
 def funcion_mejor_promedio(matriz):
-    columna = []
+    columna = [] #inicializamos una lista
     
-    bandera = True          
+    bandera = True #inicializamos la bandera como True
     
-    for i in range(len(matriz)):
-        acumulador_examenes = 0
-        fila = []
-        for j in range(len(matriz[i])):
-            acumulador_examenes += matriz[i][j]      
+    for i in range(len(matriz)): #recoremos la matriz(columna)
+        acumulador_examenes = 0 # inicializamos la variable acumulador como 0
+        fila = [] #inicializamos otra lista
+        for j in range(len(matriz[i])): # recorremos la fila
+            acumulador_examenes += matriz[i][j]  # vamos acumulando los valores que se encuentra dentro de la lista pertenecientes a la matriz    
                          
-        promedio = acumulador_examenes / len(matriz[i])
+        promedio = acumulador_examenes / len(matriz[i]) # inicializamos la variable promedio, dividimos los valores acumuladores por la longitud de la matriz
             
-        if bandera == True or  promedio >= mayor_promedio:
-            mayor_promedio = promedio
-            indice_alumno = i
-            bandera = False
+        if bandera == True or  promedio >= mayor_promedio: #la primera vuelta entra por bandera, y guarda el primer promedio en una variable, esa variable en las siguientes vueltas las compara con los otros promedios
+            mayor_promedio = promedio #aca guardamos el promedio en otra variable
+            indice_alumno = i #guardamos el indice del alumno
+            bandera = False # Falseamos la bandera
         
-    fila.append(promedio)
-    fila.append(indice_alumno)
+    fila.append(promedio) #agregamos el promedio a una lista
+    fila.append(indice_alumno)#agregamos el indice del alumno a una lista
         
-    columna.append(fila)
+    columna.append(fila) #agregamos la lista a otra lista(matriz)
     
-    return columna
+    return columna #retornamos la matriz
 
 # PUNTO 4
 
 def buscar_nota(matriz, nota_buscada):
     
-    nueva_matriz = []
+    nueva_matriz = [] #inicializamos una lista
 
     for i in range(len(matriz)):        
-        for j in range(len(matriz[i])):
-            if nota_buscada == matriz[i][j]:
-                lista_indice_nota = [i,j]
-                nueva_matriz.append(lista_indice_nota)
+        for j in range(len(matriz[i])): # recorremos la columna y luego la fila
+            if nota_buscada == matriz[i][j]: # segun la nota que le pasemos, al encontrar la coincidencia realiza lo siguiente
+                lista_indice_nota = [i,j] # obtenemos el dato del indice donde se encuentra la coincidencia de la nota ingresada
+                nueva_matriz.append(lista_indice_nota) #guardamos la lista en otra lista
         
-    if not nueva_matriz:
-        return "No se encontró ninguna coincidencia"    
+    if not nueva_matriz: # validamos por si no encuentra ninguna coincidencia de la nota ingresada
+        return "No se encontró ninguna coincidencia"    #retornamos la respuesta
         
-    return nueva_matriz
+    return nueva_matriz #retornamos la matriz
 
 
 
@@ -98,9 +100,9 @@ def mostrar_lista():
                   "2) Función porcentaje_aprobados\n",
                   "3) Función mejor_promedio\n",
                   "4) Función buscar_nota\n",
-                  "5) Salir del programa\n"]
+                  "5) Salir del programa\n"] #Creamos una lista con las opciones disponibles
     
     for opcion in lista_opciones:
-        print(opcion)
+        print(opcion) #recoremos la lista y vamos mostrando cada opcion por cada vuelta
 
 
